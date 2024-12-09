@@ -1,0 +1,19 @@
+.Checklist for closing gaps between the https://fineract.apache.org[Fineract] release process and the https://www.apache.org/legal/release-policy.html[official Apache Release Policy]
+****
+* [ ] Perform official release.
+** [ ] Release mangager builds release candidate tarballs. FIXME
+** [ ] Binding voters https://www.apache.org/legal/release-policy.html#release-approval[approve release candidate].
+*** [ ] Download bin, src, checksums, signature onto own hardware.
+*** [ ] https://www.apache.org/legal/release-policy.html#artifacts[Verify artifacts meet ASF policy requirements].
+*** [ ] Validate all cryptographic signatures.
+*** [ ] Compile as provided.
+*** [ ] Test the result (build product) on own platform.
+* [ ] Delete https://github.com/apache/fineract/releases[github release assets] to https://www.apache.org/legal/release-policy.html#what[avoid use of unapproved source and build artifacts]. 
+****
+
+.Other recommendations
+****
+* [ ] Use https://www.apache.org/legal/release-policy.html#downloads[official release metrics] instead of https://scarf.sh[Scarf] for download statistics.
+* [ ] Ping ASF infra team prior to releases https://www.apache.org/legal/release-policy.html#heads-up[since they are > 300MB].
+* [ ] Use https://www.apache.org/legal/release-policy.html#release-types[official release naming convention]: "Test Packages", "Nightly Builds", "Release Candidates", "Releases".
+****
