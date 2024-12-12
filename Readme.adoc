@@ -11,6 +11,7 @@
 * [ ] Use https://infra.apache.org/release-distribution.html#channels[official release distribution channel] -- `downloads.apache.org`.
 * [ ] Ensure https://fineract.apache.org/#downloads links to official mirrored release artifacts.
 * [ ] Delete https://github.com/apache/fineract/releases[GitHub release assets] to https://www.apache.org/legal/release-policy.html#what[avoid use of unapproved source and build artifacts]. See also: https://infra.apache.org/release-distribution.html#unreleased[Distribution of unreleased materials].
+* [ ] Collapse multiple sources of truth for what's in Fineract releases: JIRA, GitHub releases, Confluence.
 ****
 
 .Other recommendations
