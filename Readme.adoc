@@ -1,7 +1,6 @@
 .Checklist for closing gaps between the https://fineract.apache.org[Fineract] release process and the https://www.apache.org/legal/release-policy.html[official Apache Release Policy]
 ****
 * [ ] Perform *official* release.
-** [ ] Release mangager builds release candidate tarballs (FIXME - may already be happening).
 ** [ ] Binding voters https://www.apache.org/legal/release-policy.html#release-approval[approve release candidate].
 *** [ ] Download bin, src, checksums, signature onto own hardware.
 *** [ ] https://www.apache.org/legal/release-policy.html#artifacts[Verify artifacts meet ASF policy requirements].
