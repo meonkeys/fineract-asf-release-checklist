@@ -13,6 +13,7 @@
 * [ ] Delete https://github.com/apache/fineract/releases[GitHub release assets] to https://www.apache.org/legal/release-policy.html#what[avoid use of unapproved source and build artifacts]. See also: https://infra.apache.org/release-distribution.html#unreleased[Distribution of unreleased materials].
 * [ ] Update https://downloads.apache.org/fineract/KEYS -- add James's new PGP key
 * [ ] Collapse multiple sources of truth for what's in Fineract releases: JIRA, GitHub releases, Confluence.
+* [ ] https://infra.apache.org/release-distribution.html#sigs-and-sums[Discontinue MD5 checksums].
 ****
 
 .Other recommendations
