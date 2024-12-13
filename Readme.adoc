@@ -18,10 +18,11 @@
 
 .Other recommendations
 ****
-* [ ] Use https://www.apache.org/legal/release-policy.html#downloads[official release metrics] and/or https://analytics.apache.org[ASF-hosted Matomo] instead of https://scarf.sh[Scarf] for download statistics.
 * [ ] Ping ASF infra team prior to releases https://www.apache.org/legal/release-policy.html#heads-up[since they are > 300MB].
 * [ ] Use https://www.apache.org/legal/release-policy.html#release-types[official release naming convention]: "Test Packages", "Nightly Builds", "Release Candidates", "Releases".
 * [ ] Update Releases section on https://projects.apache.org/project.html?fineract[Project Information page] by updating Fineract's https://github.com/ewilderj/doap[DOAP RDF] (add a task for this in JIRA and Fineract Release Plugin `buildSrc/` code).
+* [ ] Use https://www.apache.org/legal/release-policy.html#downloads[official release metrics] and/or https://analytics.apache.org[ASF-hosted Matomo] instead of https://scarf.sh[Scarf] for download statistics.
+** [x] Note https://cwiki.apache.org/confluence/display/FINERACT/FSIP-2+Scarf+Data+Tracking[Fineract PMC Scarf research and decision]
 ****
 
 See also:
