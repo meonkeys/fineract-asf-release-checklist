@@ -1,5 +1,5 @@
 My naíve/early recommendations based on Dec 2024 release engineering conversations.
-I don't believe the goal with Fineract 1.10.1 and 1.11 releases will be to strictly meet every ASF policy, but rather to do the best we can, continue to improve, and be transparent about any gaps.
+I don't believe the goal with Fineract 1.10.1 and 1.11 releases will be to strictly meet/exceed every ASF policy, but rather to do the best we can, continue to improve, and be transparent about any gaps.
 
 .Checklist for closing gaps between the https://fineract.apache.org[Fineract] release process and the https://www.apache.org/legal/release-policy.html[official Apache Release Policy]
 ****
@@ -22,6 +22,7 @@ I don't believe the goal with Fineract 1.10.1 and 1.11 releases will be to stric
 .Other recommendations
 ****
 * [ ] Ping ASF infra team prior to releases https://www.apache.org/legal/release-policy.html#heads-up[since they are > 300MB].
+* [ ] https://issues.apache.org/jira/browse/FINERACT-2158[ensure every PR on GitHub references a Fineract JIRA ticket]
 * [ ] Use https://www.apache.org/legal/release-policy.html#release-types[official release naming convention]: "Test Packages", "Nightly Builds", "Release Candidates", "Releases".
 * [ ] Update Releases section on https://projects.apache.org/project.html?fineract[Project Information page] by updating Fineract's https://github.com/ewilderj/doap[DOAP RDF] (add a task for this in JIRA and Fineract Release Plugin `buildSrc/` code).
 * [ ] Use https://www.apache.org/legal/release-policy.html#downloads[official release metrics] and/or https://analytics.apache.org[ASF-hosted Matomo] instead of https://scarf.sh[Scarf] for download statistics.
