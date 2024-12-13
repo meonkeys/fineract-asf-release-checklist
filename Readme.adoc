@@ -27,9 +27,11 @@
 
 See also:
 
-* https://fineract.apache.org/docs/current/#_release_process
-* https://www.apache.org/legal/release-policy.html
-* https://infra.apache.org/release-download-pages.html
-* https://infra.apache.org/release-signing.html
-* https://infra.apache.org/release-distribution.html
-* https://infra.apache.org/release-distribution.html#other-platforms
+* https://fineract.apache.org/docs/current/#_release_process[release process | Fineract docs snapshot]
+* https://www.apache.org/legal/release-policy.html[ASF release policy]
+* https://infra.apache.org/release-download-pages.html[ASF guidance on project download pages]
+* https://infra.apache.org/release-signing.html[ASF release signing basic intro]
+* https://infra.apache.org/release-distribution.html[ASF release distribution policy]
+* https://infra.apache.org/release-distribution.html#other-platforms[places ASF project artifacts may be released/distributed]
+* https://lists.apache.org/thread/csgdvlv6jnycf4b2w5g98vwmr51hmzkp[2024-12-12 release engineering meeting notes]
+* https://lists.apache.org/thread/jtx0dg24524oomh9g38xqpn8hff6klmf[2024-12-11 release engineering meeting notes]
