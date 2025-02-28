@@ -1,4 +1,4 @@
-My naíve/early recommendations based on Dec 2024 release engineering conversations.
+Recommendations for improving Fineract releases based on recent release engineering conversations.
 I don't believe the goal with Fineract 1.10.1 and 1.11 releases will be to strictly meet/exceed every ASF policy, but rather to do the best we can, continue to improve, and be transparent about any gaps.
 
 .Checklist for closing gaps between the https://fineract.apache.org[Fineract] release process and the https://www.apache.org/legal/release-policy.html[official Apache Release Policy]
