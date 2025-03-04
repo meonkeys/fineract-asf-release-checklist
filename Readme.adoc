@@ -37,3 +37,101 @@ See also:
 * https://infra.apache.org/release-distribution.html#other-platforms[places ASF project artifacts may be released/distributed]
 * https://lists.apache.org/thread/csgdvlv6jnycf4b2w5g98vwmr51hmzkp[2024-12-12 release engineering meeting notes]
 * https://lists.apache.org/thread/jtx0dg24524oomh9g38xqpn8hff6klmf[2024-12-11 release engineering meeting notes]
+
+=== Release candiate verification process
+
+Proposed rough steps to verify a release candidate:
+
+. download the rc artifacts and verify their integrity
+. run a build using only the source tarball and the recommended JDK
+. start up a Fineract server using the war in the binary tarball
+
+Examples of these steps appear below.
+These are meant to be run interactively (not scheduled / automated), that is: Copy+pasted or manually typed in on your own machine.
+The steps assume Bash shell on Linux (and a few common GNU utilities: sha512sum, gpg, cat, tar...) but are hopefully clear enough to use as general guidance on other systems as well.
+These commands should work the same in Bash on macOS or Windows.
+
+==== Step 1
+
+[source,bash]
+----
+version=1.11.0
+svn checkout https://dist.apache.org/repos/dist/dev/fineract/$version/
+cd $version
+sha512sum -c "apache-fineract-$version-src.tar.gz.sha512"
+gpg --verify "apache-fineract-$version-src.tar.gz.asc"
+sha512sum -c "apache-fineract-$version-binary.tar.gz.sha512"
+gpg --verify "apache-fineract-$version-binary.tar.gz.asc"
+----
+
+Look for "Good signature from..." messages from gpg, and ignore a warning like "This key is not certified...". See below for details.
+
+==== Step 2
+
+[source,bash]
+----
+tar -xzf "apache-fineract-$version-src.tar.gz"
+cd "apache-fineract-$version-src"
+./gradlew build -x test -x doc
+cd ..
+----
+
+That should succeed and you should find binary and source tarballs in fineract-war/build/distributions/ . See below for details.
+
+==== Step 3
+
+Before running this you must start a database server and ensure the fineract_default and fineract_tenant databases exist. Then:
+
+[source,bash]
+----
+cat << 'EndOfRcenv' >> rcenv
+FINERACT_SERVER_SSL_ENABLED=false
+FINERACT_SERVER_PORT=8080
+BACKEND_PROTOCOL=http
+BACKEND_PORT=$FINERACT_SERVER_PORT
+EndOfRcenv
+
+tar -xzf "apache-fineract-$version-binary.tar.gz"
+cd "apache-fineract-binary-$version"
+docker run --rm -it -v "$(pwd):/usr/local/tomcat/webapps" --net=host --env-file=rcenv tomcat:jre17
+cd ..
+----
+
+At that point http://localhost:8080/fineract-provider/actuator/health should work and you should be able to make API calls against http://localhost:8080/fineract-provider/api/v1 .
+
+==== Notes
+
+For the above I used:
+
+* Ubuntu 22.04 LTS 64-bit desktop
+* svn 1.14.1
+* openjdk Java 17.0.14
+* Gradle 8.10.2
+* Docker 26.1.3
+* Bash 5.1.16
+* GNU coreutils 8.32
+
+The computer I'm using for all this has Intel silicon, 16 cores, 64GB RAM.
+
+re: Step 1 - see https://lists.apache.org/thread/50d7j67m0f77pfc0r1bxr0mr1wjhg2zb[my message about scary GnuPG signature warnings].
+If you see `WARNING: This key is not certified with a trusted signature!` ... `There is no indication that the signature belongs to the owner`, you can ignore it, for now.
+The warning is because you have the signer's key, but nobody you trust has signed it.
+Let's do a keysigning party and get rid of those warnings.
+First, go get cozy and read all about https://en.wikipedia.org/wiki/Key_signing_party[keysigning] and the https://en.wikipedia.org/wiki/Web_of_trust[web of trust].
+Both are truly elegant and empowering ways to, paradoxically, *not* have to trust what you find on one or other download page, rather, to leverage personal human connections and the strongest encryption we have at our disposal to provide strong assurances of data integrity and sender intent.
+
+re: Step 2 - I think this is a bare minimum example build from source.
+The -x test and -x doc args should really make you upset... they just aren't that easy to run.
+Ideally you'd build docs and run every possible test and check, but https://github.com/apache/fineract/actions[running everything has complex dependencies, caches, and takes many hours].
+It is rarely done in practice offline / local / on developer machines.
+But please, go ahead and run the test and doc tasks, and more!
+Grab a cup of coffee and run everything you can.
+We should all hammer on a release candidate as much as we can to see if it breaks and fix it if so.
+All that of course improves our final release.
+I hope I don't sound patronizing here -- I don't mean to be.
+I'm learning/practicing, and I'm going into detail since I haven't found nor been made aware of an official release build/test process.
+Feedback welcome, as always.
+Anyway, yes, do as much checking as you're willing and able to.
+Ádám Sághy shared a bunch more https://lists.apache.org/thread/q4xvombgzk99lpow23bdpvd7n0dx49lt[ideas for build/test steps to run].
+
+re: Step 3 - I'm not sure if all those env vars are necessary.
