@@ -5,16 +5,18 @@ I don't believe the goal with Fineract 1.10.1 and 1.11 releases will be to stric
 ****
 * [ ] Perform *official* release.
 ** [ ] Binding voters https://www.apache.org/legal/release-policy.html#release-approval[approve release candidate].
+*** [ ] Improve, approve, and follow a shared https://lists.apache.org/thread/hym94pdy3nk9gjspkz4qonv2v15n5dpo[release candidate verification process].
 *** [ ] Download bin, src, checksums, signature onto own hardware.
 *** [ ] https://www.apache.org/legal/release-policy.html#artifacts[Verify artifacts meet ASF policy requirements].
 *** [ ] Validate all cryptographic signatures.
 *** [ ] Compile as provided.
 *** [ ] Test the result (build product) on own platform.
-* [ ] Use https://infra.apache.org/release-distribution.html#channels[official release distribution channel] -- `downloads.apache.org`.
+* [x] Use https://infra.apache.org/release-distribution.html#channels[official release distribution channel] -- `downloads.apache.org`.
 * [ ] Ensure https://fineract.apache.org/#downloads links to official mirrored release artifacts.
-* [ ] Update https://downloads.apache.org/fineract/KEYS -- add James's new PGP key
+* [ ] Improve https://downloads.apache.org/fineract/KEYS[KEYS] file: https://lists.apache.org/thread/7wq9moshw1hfndycodfnzy8ndocpwoy7[ensure match with dev version and improve docs/formatting]
 * [ ] Collapse multiple sources of truth for what's in Fineract releases: JIRA, GitHub releases, Confluence.
 * [ ] https://infra.apache.org/release-distribution.html#sigs-and-sums[Discontinue MD5 checksums].
+* [ ] Practice https://lists.apache.org/thread/7wq9moshw1hfndycodfnzy8ndocpwoy7[good key hygiene].
 ****
 
 .Other recommendations
@@ -23,8 +25,7 @@ I don't believe the goal with Fineract 1.10.1 and 1.11 releases will be to stric
 * [ ] https://issues.apache.org/jira/browse/FINERACT-2158[ensure every PR on GitHub references a Fineract JIRA ticket]
 * [ ] Use https://www.apache.org/legal/release-policy.html#release-types[official release naming convention]: "Test Packages", "Nightly Builds", "Release Candidates", "Releases".
 * [ ] Update Releases section on https://projects.apache.org/project.html?fineract[Project Information page] by updating Fineract's https://github.com/ewilderj/doap[DOAP RDF] (add a task for this in JIRA and Fineract Release Plugin `buildSrc/` code).
-* [ ] Use https://www.apache.org/legal/release-policy.html#downloads[official release metrics] and/or https://analytics.apache.org[ASF-hosted Matomo] instead of https://scarf.sh[Scarf] for download statistics.
-** [x] Note https://cwiki.apache.org/confluence/display/FINERACT/FSIP-2+Scarf+Data+Tracking[Fineract PMC Scarf research and decision]
+* [ ] Use https://www.apache.org/legal/release-policy.html#downloads[official release metrics] and/or https://analytics.apache.org[ASF-hosted Matomo] instead of https://scarf.sh[Scarf] for download statistics. (Note: https://cwiki.apache.org/confluence/display/FINERACT/FSIP-2+Scarf+Data+Tracking[Fineract PMC Scarf research and decision])
 ****
 
 See also:
